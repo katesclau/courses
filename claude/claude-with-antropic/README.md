@@ -8,7 +8,7 @@
 
 | Module | Status |
 |--------|--------|
-| 1. Accessing Claude with the API | 🔄 in progress |
+| 1. Accessing Claude with the API | 🔄 in progress (Temperature) |
 | 2. Prompt evaluation | ⬜ pending |
 | 3. Prompt engineering techniques | ⬜ pending |
 | 4. Tool use with Claude | ⬜ pending |
@@ -29,9 +29,9 @@
 - [x] Making a request
 - [x] Multi-turn conversations
 - [x] Chat exercise → `001_requests.ipynb`
-- [ ] System prompts
-- [ ] System prompts exercise
-- [ ] Temperature
+- [x] System prompts
+- [x] System prompts exercise → `002_system_prompts.ipynb`
+- [x] Temperature → `003_temperature.ipynb`
 - [ ] Response streaming
 - [ ] Structured data
 - [ ] Structured data exercise
@@ -112,6 +112,8 @@
 | File | Module | Topic |
 |------|--------|-------|
 | `001_requests.ipynb` | 1 | Making requests · Multi-turn chat |
+| `002_system_prompts.ipynb` | 1 | System prompts · Output format control |
+| `003_temperature.ipynb` | 1 | Temperature · Brainstorming with system prompts |
 
 ---
 

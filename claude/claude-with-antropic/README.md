@@ -8,9 +8,9 @@
 
 | Module | Status |
 |--------|--------|
-| 1. Accessing Claude with the API | 🔄 in progress (Temperature) |
-| 2. Prompt evaluation | ⬜ pending |
-| 3. Prompt engineering techniques | ⬜ pending |
+| 1. Accessing Claude with the API | ✅ complete |
+| 2. Prompt evaluation | ✅ complete |
+| 3. Prompt engineering techniques | ✅ complete |
 | 4. Tool use with Claude | ⬜ pending |
 | 5. RAG and Agentic Search | ⬜ pending |
 | 6. Features of Claude | ⬜ pending |
@@ -32,26 +32,26 @@
 - [x] System prompts
 - [x] System prompts exercise → `002_system_prompts.ipynb`
 - [x] Temperature → `003_temperature.ipynb`
-- [ ] Response streaming
-- [ ] Structured data
-- [ ] Structured data exercise
+- [x] Response streaming → `004_response_streaming.ipynb`
+- [x] Structured data → `005_structured_data.ipynb`
+- [x] Structured data exercise → `005_structured_data.ipynb`
 
 ### Module 2 – Prompt Evaluation
 
-- [ ] A typical eval workflow
-- [ ] Generating test datasets
-- [ ] Running the eval
-- [ ] Model-based grading
-- [ ] Code-based grading
-- [ ] Exercise on prompt evals
+- [x] A typical eval workflow
+- [x] Generating test datasets
+- [x] Running the eval
+- [x] Model-based grading
+- [x] Code-based grading
+- [x] Exercise on prompt evals → `006_prompt_evaluation.ipynb` · `006_prompt_evals_fns.ipynb`
 
 ### Module 3 – Prompt Engineering Techniques
 
-- [ ] Being clear and direct
-- [ ] Being specific
-- [ ] Structure with XML tags
-- [ ] Providing examples
-- [ ] Exercise on prompting
+- [x] Being clear and direct
+- [x] Being specific
+- [x] Structure with XML tags
+- [x] Providing examples
+- [x] Exercise on prompting → `007_prompting.ipynb`
 
 ### Module 4 – Tool Use with Claude
 
@@ -114,6 +114,11 @@
 | `001_requests.ipynb` | 1 | Making requests · Multi-turn chat |
 | `002_system_prompts.ipynb` | 1 | System prompts · Output format control |
 | `003_temperature.ipynb` | 1 | Temperature · Brainstorming with system prompts |
+| `004_response_streaming.ipynb` | 1 | Response streaming |
+| `005_structured_data.ipynb` | 1 | Structured data · JSON output with prefill |
+| `006_prompt_evaluation.ipynb` | 2 | Prompt evaluation pipeline |
+| `006_prompt_evals_fns.ipynb` | 2 | Prompt eval helper functions |
+| `007_prompting.ipynb` | 3 | Prompt engineering · Dietician agent eval |
 
 ---
 

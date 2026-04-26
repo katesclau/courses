@@ -1,0 +1,337 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">5.7 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">33.3%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a high-endurance athlete (marathoner) requiring 3000+ calories with emphasis on carbohydrates and hydration timing</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178 cm<br><strong>weight:</strong> 68 kg<br><strong>goal:</strong> Marathon training day - high-endurance athlete requiring 3000+ calories with carbohydrate and hydration focus<br><strong>restrictions:</strong> None</td>
+                <td class="criteria">• Total daily calories meet or exceed 3000 kcal<br>• Carbohydrates comprise 55-65% of total calories<br>• Hydration timing is specified around training/meals<br>• Meal plan is presented in compact 1-day format with breakfast, lunch, dinner, and snacks</td>
+                <td class="output"><pre>## Targets
+Daily: 3100 kcal | P: 109g C: 496g F: 86g
+
+---
+
+**Breakfast** (7:00 AM)
+- Oatmeal (dry): 80g — 296 kcal | P: 10g C: 51g F: 5g
+- Banana: 120g — 107 kcal | P: 1g C: 27g F: 0g
+- Whole milk: 250ml — 160 kcal | P: 8g C: 12g F: 9g
+- Honey: 20g — 61 kcal | P: 0g C: 16g F: 0g
+Meal total: 624 kcal | P: 19g C: 106g F: 14g
+
+---
+
+**Morning Snack** (10:00 AM — pre-workout)
+- Bagel (whole wheat): 85g — 210 kcal | P: 8g C: 41g F: 1g
+- Almond butter: 25g — 150 kcal | P: 5g C: 6g F: 13g
+- Orange juice: 250ml — 112 kcal | P: 2g C: 26g F: 0g
+Meal total: 472 kcal | P: 15g C: 73g F: 14g
+
+---
+
+**Lunch** (1:00 PM — post-workout)
+- Chicken breast (grilled): 150g — 247 kcal | P: 52g C: 0g F: 3g
+- White rice: 150g cooked — 195 kcal | P: 4g C: 43g F: 0g
+- Broccoli (steamed): 150g — 52 kcal | P: 5g C: 10g F: 0g
+- Olive oil: 10ml — 90 kcal | P: 0g C: 0g F: 10g
+Meal total: 584 kcal | P: 61g C: 53g F: 13g
+
+---
+
+**Afternoon Snack** (4:00 PM)
+- Energy bar (oat-based): 65g — 260 kcal | P: 8g C: 40g F: 8g
+- Greek yogurt (plain): 170g — 100 kcal | P: 17g C: 7g F: 0g
+Meal total: 360 kcal | P: 25g C: 47g F: 8g
+
+---
+
+**Dinner** (7:00 PM)
+- Salmon (baked): 160g — 320 kcal | P: 35g C: 0g F: 19g
+- Sweet potato: 200g — 180 kcal | P: 4g C: 41g F: 0g
+- Mixed vegetables (sautéed): 150g — 75 kcal | P: 3g C: 15g F: 2g
+- Olive oil: 8ml — 72 kcal | P: 0g C: 0g F: 8g
+Meal total: 647 kcal | P: 42g C: 56g F: 29g
+
+---
+
+**Daily Total: 2687 kcal | P: 162g C: 335g F: 78g**
+
+<verification>
+Target vs Actual: kcal 3100 vs 2687 | P 109g vs 162g | C 496g vs 335g | F 86g vs 78g
+
+Status: ADJUSTED (Lunch carbs increased: white rice 150g→200g cooked [+65 kcal, +15g carbs]. Afternoon Snack: added banana 100g [89 kcal, +1g P, +23g C])
+
+**Revised Daily Total: 2841 kcal | P: 163g C: 373g F: 78g**
+
+Target vs Revised: kcal </pre></td>
+                <td class="score-col"><span class="score score-low">4</span></td>
+                <td class="reasoning">The solution meets the structural mandatory requirements (format, meals with portions/timing, macronutrient breakdown) but fails on two critical secondary criteria: (1) caloric target is unmet by 259 kcal despite acknowledged adjustment attempt, and (2) carbohydrate percentage falls below the 55-65% range. Most significantly, hydration guidance is completely absent. The solution shows good organization and detail but leaves the meal plan nutritionally incomplete for a marathon training day requiring 3000+ calories.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a strength/power athlete (weightlifter) requiring balanced macros with protein-focused meals and pre/post-workout nutrition</td>
+                <td class="prompt-inputs"><strong>height:</strong> 180 cm<br><strong>weight:</strong> 85 kg<br><strong>goal:</strong> Build muscle and strength through weightlifting<br><strong>restrictions:</strong> None</td>
+                <td class="criteria">• Meal plan covers all 3 meals plus pre/post-workout nutrition<br>• Protein intake is prioritized (minimum 1.6g per kg body weight)<br>• Includes balanced macronutrients supporting strength training goals<br>• Provides practical, compact meal descriptions suitable for a single day</td>
+                <td class="output"><pre>## Targets
+Daily: 3,060 kcal | P: 136g C: 344g F: 102g
+
+---
+
+**Breakfast** (7:00 AM)
+- Oatmeal (dry): 80g — 296 kcal | P: 11g C: 51g F: 5g
+- Whole milk: 250ml — 158 kcal | P: 8g C: 12g F: 9g
+- Banana: 120g — 107 kcal | P: 1g C: 27g F: 0g
+- Almond butter: 20g — 191 kcal | P: 7g C: 7g F: 17g
+Meal total: 752 kcal | P: 27g C: 97g F: 31g
+
+---
+
+**Morning Snack** (10:00 AM — pre-workout)
+- Greek yogurt (full-fat): 200g — 220 kcal | P: 20g C: 9g F: 10g
+- Granola: 40g — 180 kcal | P: 5g C: 24g F: 8g
+- Honey: 15ml — 46 kcal | P: 0g C: 12g F: 0g
+Meal total: 446 kcal | P: 25g C: 45g F: 18g
+
+---
+
+**Lunch** (1:00 PM — post-workout)
+- Grilled chicken breast: 180g — 280 kcal | P: 54g C: 0g F: 6g
+- White rice (cooked): 200g — 260 kcal | P: 5g C: 58g F: 1g
+- Olive oil: 15ml — 135 kcal | P: 0g C: 0g F: 15g
+- Mixed vegetables (broccoli, carrots): 150g — 50 kcal | P: 4g C: 9g F: 0g
+Meal total: 725 kcal | P: 63g C: 67g F: 22g
+
+---
+
+**Afternoon Snack** (4:00 PM)
+- Protein shake (whey isolate): 30g — 120 kcal | P: 26g C: 2g F: 1g
+- Whole milk: 250ml — 158 kcal | P: 8g C: 12g F: 9g
+- Oat flour: 20g — 76 kcal | P: 3g C: 13g F: 2g
+Meal total: 354 kcal | P: 37g C: 27g F: 12g
+
+---
+
+**Dinner** (7:00 PM)
+- Salmon fillet: 160g — 320 kcal | P: 38g C: 0g F: 18g
+- Sweet potato (baked): 200g — 180 kcal | P: 4g C: 41g F: 0g
+- Spinach (sautéed in oil): 150g + 10ml oil — 133 kcal | P: 4g C: 6g F: 10g
+- Brown rice (cooked): 150g — 195 kcal | P: 5g C: 43g F: 2g
+Meal total: 828 kcal | P: 51g C: 90g F: 30g
+
+---
+
+**Daily Total: 3,105 kcal | P: 203g C: 326g F: 113g**
+
+<verification>
+Target vs Actual: kcal 3,060 vs 3,105 | P 136g vs 203g | C 344g vs 326g | F 102g vs 113g
+
+Status: ADJUSTED (Protein exceeded target by 49%; reduced afternoon snack whey isolate from 30g to 15g and whole milk from 250ml to 150ml. Recalculated afternoon snack: 15</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution successfully meets all three mandatory requirements with a comprehensive, well-timed meal plan featuring exact portions and macronutrient tracking. The protein target is exceeded appropriately for muscle-building goals. However, the solution contains a critical flaw: the verification section is incomplete. It claims adjustments were made to the afternoon snack but fails to show the final recalculated values, leaving the work unfinished. Additionally, the stated targets are not fully met (carbs under, fats over), which contradicts the 'ADJUSTED' status. Despite these presentation issues, the core meal plan itself is sound and meets all stated criteria.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with an athlete with dietary restrictions (vegan endurance runner) requiring complete protein sources and iron-rich foods within caloric needs</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178<br><strong>weight:</strong> 68<br><strong>goal:</strong> endurance running performance<br><strong>restrictions:</strong> vegan</td>
+                <td class="criteria">• Meal plan is exactly 1 day with all meals specified<br>• All foods are vegan-compliant with no animal products<br>• Includes complete protein sources (legumes, nuts, seeds, or combinations) in at least 2 meals<br>• Contains iron-rich plant foods (leafy greens, legumes, fortified grains) distributed across meals</td>
+                <td class="output"><pre>## Targets
+Daily: 2850 kcal | P: 109g C: 463g F: 95g
+
+---
+
+**Breakfast** (7:00 AM)
+- Oatmeal (dry): 80g — 296 kcal | P: 11g C: 51g F: 5g
+- Banana: 120g — 107 kcal | P: 1g C: 27g F: 0g
+- Almond butter: 25g — 161 kcal | P: 6g C: 6g F: 14g
+- Plant-based milk (oat): 240ml — 120 kcal | P: 2g C: 10g F: 5g
+Meal total: 684 kcal | P: 20g C: 94g F: 24g
+
+---
+
+**Morning Snack** (10:30 AM — pre-workout)
+- Trail mix (nuts/seeds): 50g — 270 kcal | P: 8g C: 22g F: 18g
+- Dates: 60g — 159 kcal | P: 1g C: 42g F: 0g
+Meal total: 429 kcal | P: 9g C: 64g F: 18g
+
+---
+
+**Lunch** (1:00 PM — post-workout)
+- Chickpea pasta: 100g — 340 kcal | P: 15g C: 60g F: 2g
+- Marinara sauce: 150ml — 75 kcal | P: 2g C: 12g F: 2g
+- Spinach: 80g — 22 kcal | P: 3g C: 4g F: 0g
+- Olive oil: 10ml — 90 kcal | P: 0g C: 0g F: 10g
+- Whole grain bread: 50g — 130 kcal | P: 5g C: 24g F: 1g
+Meal total: 657 kcal | P: 25g C: 100g F: 15g
+
+---
+
+**Afternoon Snack** (4:00 PM)
+- Hummus: 100g — 180 kcal | P: 5g C: 16g F: 10g
+- Carrot sticks: 150g — 65 kcal | P: 1g C: 15g F: 0g
+- Rice cakes: 30g — 112 kcal | P: 2g C: 24g F: 1g
+Meal total: 357 kcal | P: 8g C: 55g F: 11g
+
+---
+
+**Dinner** (7:00 PM)
+- Lentil & vegetable curry: 300g — 420 kcal | P: 22g C: 65g F: 8g
+- Brown rice: 100g (cooked) — 111 kcal | P: 3g C: 24g F: 1g
+- Coconut milk (light, 5%): 50ml — 25 kcal | P: 0g C: 1g F: 2g
+- Broccoli: 150g — 52 kcal | P: 5g C: 10g F: 0g
+Meal total: 608 kcal | P: 30g C: 100g F: 11g
+
+---
+
+**Daily Total: 2735 kcal | P: 92g C: 413g F: 79g**
+
+<verification>
+Target vs Actual: kcal 2850 vs 2735 | P 109g vs 92g | C 463g vs 413g | F 95g vs 79g
+
+Variance: kcal -4.0% | P -15.6% | C -10.8% | F -16.8%
+
+**Status: ADJUSTED** — Added vegan protein powder (30g) to breakfast oatmeal (+120 kcal, +25</pre></td>
+                <td class="score-col"><span class="score score-medium">6</span></td>
+                <td class="reasoning">The solution successfully meets all three mandatory requirements with clear meal timing, exact portions, complete nutritional data, and daily totals. Vegan compliance is perfect. Iron-rich foods are well-distributed across meals. However, there are significant secondary criterion deficiencies: only 2 meals (lunch with chickpea pasta and dinner with lentils) contain clear complete protein sources, while breakfast and morning snack lack them despite the solution mentioning a protein powder adjustment that isn't fully reflected in the final numbers. The macronutrient targets are substantially missed, particularly protein (-15.6%) and carbohydrates (-10.8%), which is problematic for an endurance athlete. The incomplete adjustment notation creates ambiguity about whether the plan actually meets nutritional targets.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

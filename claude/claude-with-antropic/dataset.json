@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Marathon training day - high-endurance athlete requiring 3000+ calories with carbohydrate and hydration focus",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Total daily calories meet or exceed 3000 kcal",
+      "Carbohydrates comprise 55-65% of total calories",
+      "Hydration timing is specified around training/meals",
+      "Meal plan is presented in compact 1-day format with breakfast, lunch, dinner, and snacks"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a high-endurance athlete (marathoner) requiring 3000+ calories with emphasis on carbohydrates and hydration timing"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "85 kg",
+      "goal": "Build muscle and strength through weightlifting",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Meal plan covers all 3 meals plus pre/post-workout nutrition",
+      "Protein intake is prioritized (minimum 1.6g per kg body weight)",
+      "Includes balanced macronutrients supporting strength training goals",
+      "Provides practical, compact meal descriptions suitable for a single day"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a strength/power athlete (weightlifter) requiring balanced macros with protein-focused meals and pre/post-workout nutrition"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178",
+      "weight": "68",
+      "goal": "endurance running performance",
+      "restrictions": "vegan"
+    },
+    "solution_criteria": [
+      "Meal plan is exactly 1 day with all meals specified",
+      "All foods are vegan-compliant with no animal products",
+      "Includes complete protein sources (legumes, nuts, seeds, or combinations) in at least 2 meals",
+      "Contains iron-rich plant foods (leafy greens, legumes, fortified grains) distributed across meals"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with an athlete with dietary restrictions (vegan endurance runner) requiring complete protein sources and iron-rich foods within caloric needs"
+  }
+]

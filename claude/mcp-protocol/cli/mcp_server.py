@@ -1,4 +1,5 @@
 from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp.prompts import base
 from pydantic import Field
 
 mcp = FastMCP("DocumentMCP", log_level="ERROR")
@@ -39,9 +40,58 @@ def edit_document(
     
     docs[doc_id] = docs[doc_id].replace(old_str, new_str)
 
-# TODO: Write a resource to return all doc id's
-# TODO: Write a resource to return the contents of a particular doc
-# TODO: Write a prompt to rewrite a doc in markdown format
+@mcp.resource(
+    "docs://documents",
+    description="A list of all document ids.",
+    mime_type="application/json"
+)
+def list_docs() -> list[str]:
+    return list(docs.keys())
+
+@mcp.resource(
+    "docs://documents/{doc_id}",
+    description="The contents of a particular document.",
+    mime_type="text/plain"
+)
+def fetch_doc(
+    doc_id: str = Field(description="Id of the document to get")
+) -> str:
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    return docs[doc_id]
+
+@mcp.prompt(
+    name="format",
+    description="Rewrite a document in markdown format.",
+)
+def rewrite_doc_in_markdown(
+    doc_id: str = Field(description="Id of the document to rewrite"),
+) -> list[base.Message]:
+    prompt = f"""
+<task>
+Your goal is to rewrite the document in markdown format.
+You will be given a document and you will need to rewrite it in markdown format.
+</task>
+
+ The document you need to reformat is:
+ <document_id>
+ {doc_id}
+ </document_id>
+
+ You will need to use the following format:
+ - # Heading
+ - ## Subheading
+ - ### Subsubheading
+ - - Bullet point
+ - - Bullet point
+
+ Add in headers, subheaders, and bullet points, tables, etc as needed.
+ Feel free to add in structure, based on the content of the document.
+ Use the `edit_document` tool to edit the document as needed.
+ After you have rewritten the document, return the document as a list of messages.
+ """
+    return [base.UserMessage(prompt)]
+
 # TODO: Write a prompt to summarize a doc
 
 
